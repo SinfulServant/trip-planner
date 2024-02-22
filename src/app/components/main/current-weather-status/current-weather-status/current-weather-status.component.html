@@ -4,7 +4,7 @@
     <div>
       <img
         src="{{
-          'src/../../../../.././assets/' + currentDay.icon + '.png'
+          'https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/2nd%20Set%20-%20Color/' + currentDay.icon + '.png'
         }}"
         alt=""
       />
@@ -26,7 +26,7 @@
       <p>MINUTES</p>
     </div>
     <div>
-      <p>{{ differenceBetweenDates | date : "ss" }}</p>
+      <p>{{ (differenceBetweenDates | date : "ss") }}</p>
       <p>SECONDS</p>
     </div>
   </div>

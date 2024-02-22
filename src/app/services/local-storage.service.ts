@@ -5,8 +5,8 @@ const localStorageKey = 'trips';
 const fakeTrip: ITripData[] = [
   {
     city: 'London',
-    startDate: '2024-02-01',
-    endDate: '2024-02-14',
+    startDate: '2024-03-10',
+    endDate: '2024-03-25',
     img: '',
     days: [],
   },
@@ -19,7 +19,7 @@ export class LocalStorageService {
   constructor() {}
 
   public makeInitTrip(): void {
-    if (!localStorage.getItem(localStorageKey) || localStorage.getItem('trips') !== '[]') localStorage.setItem(localStorageKey, JSON.stringify(fakeTrip));
+    if (!localStorage.getItem(localStorageKey)) localStorage.setItem(localStorageKey, JSON.stringify(fakeTrip));
   }
 
   public updateTrips(trips: ITripData[]): void {
@@ -28,7 +28,10 @@ export class LocalStorageService {
 
   public getTrips(): ITripData[] {
     //@ts-ignore
-    return JSON.parse(localStorage.getItem(localStorageKey));
+    const trips = JSON.parse(localStorage.getItem(localStorageKey));
+    //@ts-ignore
+    trips.forEach(trip => trip.days = [])
+    return trips
   }
 
   public removeTrips(){
