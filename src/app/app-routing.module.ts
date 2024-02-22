@@ -6,16 +6,11 @@ import { MainComponent } from './components/main/main.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main',
-    pathMatch: 'full',
+    component: MainComponent
   },
   {
     path: 'authorization',
     component: AuthorizationComponent,
-  },
-  {
-    path: 'main',
-    component: MainComponent
   }
 ];
 
