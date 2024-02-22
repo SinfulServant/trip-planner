@@ -1,0 +1,6 @@
+<div class="weather-card">
+    <h5>{{day.datetime | date: 'EEEE'}}</h5>
+    <p style="font-size: 12px;">{{day.datetime | date: 'MM/dd/yy'}}</p>
+    <img src="{{'./../../../../.././assets/weatherIcons/' + day.icon + '.png'}}" alt="">
+    <p>{{day.tempmin}}° / {{day.tempmax}}°</p>
+</div>

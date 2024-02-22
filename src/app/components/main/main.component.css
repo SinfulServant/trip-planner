@@ -1,0 +1,14 @@
+#main-page {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    height: 100vh;
+}
+
+@media screen and (max-width: 1200px) {
+    #main-page {
+        display: block;
+    }
+    aside {
+        display: none;
+    }
+}

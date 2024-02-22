@@ -1,0 +1,19 @@
+form {
+    height: 500px;
+    width: 450px;
+    background-color: #d4d4d4;
+}
+
+@media screen and (max-width: 724px) {
+    form {
+        height: 80vh;
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    form {
+        height: 80vh;
+        width: 90vw;
+    }
+}

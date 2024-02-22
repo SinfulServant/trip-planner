@@ -1,0 +1,71 @@
+.status-main {
+    height: 100vh;
+    width: 100%;
+    padding: 35% 30px;
+    background-image: url('./../../../../../assets/status-background.webp');
+    background-position: center;
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.current-weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4 {
+    font-size: 48px;
+}
+
+.current-weather > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-img {
+    position: relative;
+    width: 75px;
+    height: 75px;
+}
+
+.current-weather > div > p {
+    font-size: 72px;
+    position: relative;
+}
+
+.current-weather > div > p::after {
+    content: "°C";
+    position: absolute;
+    top: 12%;
+    font-size: 24px;
+}
+
+.current-weather > p {
+    font-size: 32px;
+    font-weight: 200;
+}
+
+.time-to-trip {
+    display: flex;
+    justify-content: space-around;
+}
+
+.time-to-trip > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-to-trip > div > p:first-child {
+    font-size: xx-large;
+}
+
+.time-to-trip > div > p:last-child {
+    font-weight: 200;
+}

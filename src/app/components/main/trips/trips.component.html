@@ -1,0 +1,106 @@
+<div id="trip-component">
+  <app-modal
+    *ngIf="isShowModal"
+    (closeModal)="isShowModal = false"
+    (sendFormData)="getNewTrip($event)"
+  ></app-modal>
+
+  <div class="trips-heading">
+    <h4>Weather Forecast</h4>
+    <input
+      [(ngModel)]="searchInput"
+      type="text"
+      placeholder="Search your trip"
+      (input)="calculateTripsView(true)"
+    />
+  </div>
+
+  <div class="trips-menu">
+    <div
+      *ngFor="let trip of tripsInView; let i = index"
+      class="trip-card"
+      [ngStyle]="{
+        border:
+          i === activeTrip.value - currentPageOfTrips * 3 + 3
+            ? '1px solid #8787ae'
+            : ''
+      }"
+      (click)="clickOnTrip(i)"
+    >
+      <div
+        class="trip-img"
+        [ngStyle]="{ 'background-image': 'url(' + trip.img + ')' }"
+      ></div>
+
+      <div class="trip-data">
+        <h5>{{ trip.city }}</h5>
+        <p>
+          {{ trip.startDate | date : "MM/dd/yy" }} -
+          {{ trip.endDate | date : "MM/dd/yy" }}
+        </p>
+        <button (click)="deleteTrip(i)">Delete</button>
+      </div>
+    </div>
+
+    <div (click)="isShowModal = true" class="trip-add">
+      <p><span>+</span><br />Add trip</p>
+    </div>
+  </div>
+
+  <div *ngIf="tripsList.length > 3" class="trip-btn-group">
+    <button
+      class="btn-control"
+      [disabled]="calculateTripsView()[0] == tripsInView[0]"
+      (click)="nextTripsView(-1)"
+    >
+      <div class="arrow left"></div>
+    </button>
+    <button
+      class="btn-control"
+      [disabled]="
+        calculateTripsView()[calculateTripsView().length - 1] ==
+        tripsInView[tripsInView.length - 1]
+      "
+      (click)="nextTripsView(1)"
+    >
+      <div class="arrow right"></div>
+    </button>
+  </div>
+
+  <h4 class="trips-heading">
+    Weather for a week for {{ tripsList[activeTrip.value].city }}
+  </h4>
+
+  <div class="weather-days-area">
+    <div *ngIf="tripsList[activeTrip.value].days.length > 7">
+      <button
+        class="btn-control"
+        [disabled]="tripsList[activeTrip.value].days[0] == focusedTripDays[0]"
+        (click)="nextDaysWeather(-1)"
+      >
+        <div class="arrow left"></div>
+      </button>
+    </div>
+
+    <div class="weather-list-for-focused-trip">
+      <app-weather-for-focused-trip
+        *ngFor="let day of focusedTripDays; let i = index"
+        [day]="day"
+        [city]="calculateTripsView()[activeTrip.value].city"
+      ></app-weather-for-focused-trip>
+    </div>
+
+    <div *ngIf="tripsList[activeTrip.value].days.length > 7">
+      <button
+        class="btn-control"
+        [disabled]="
+          tripsList[activeTrip.value].days[tripsList[activeTrip.value].days.length - 1] ==
+          focusedTripDays[focusedTripDays.length - 1]
+        "
+        (click)="nextDaysWeather(1)"
+      >
+        <div class="arrow right"></div>
+      </button>
+    </div>
+  </div>
+</div>

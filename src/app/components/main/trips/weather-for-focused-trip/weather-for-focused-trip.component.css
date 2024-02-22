@@ -1,0 +1,12 @@
+.weather-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 120px;
+}
+
+h5 {
+  margin: 0;
+}

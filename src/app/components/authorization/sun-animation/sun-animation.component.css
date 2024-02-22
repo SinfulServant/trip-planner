@@ -1,0 +1,27 @@
+div {
+    height: 300px;
+    width: 300px;
+    background-image: url('./../../../../assets/sun.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: sun-anim 20s linear infinite;
+}
+
+div::before {
+    position: absolute;
+    content: "";
+    height: 50%;
+    border-radius: 50%;
+    width: 50%;
+    top: 47.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(red, green, blue, 0);
+    box-shadow: 10px 10px 300px rgb(242, 255, 3);
+}
+
+@keyframes sun-anim {
+    100% {
+        transform: rotate(360deg);
+    }
+}

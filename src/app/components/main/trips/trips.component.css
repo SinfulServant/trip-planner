@@ -1,0 +1,153 @@
+#trip-component {
+  padding: 20px 10px;
+}
+
+.trips-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trips-heading {
+  padding-left: 70px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+h4 {
+  font-size: x-large;
+}
+
+h5 {
+  font-size: large;
+}
+
+.trip-card {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  height: 250px;
+  width: 200px;
+  border: rgb(200, 200, 200) 1px solid;
+}
+
+.trip-img {
+  background-size: cover;
+  background-position: center;  
+}
+
+.trip-data {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.trip-data button {
+  align-self: flex-end;
+  margin-top: auto;
+  background-color: rgb(253, 121, 121);
+  border-radius: 10px;
+  border: none;
+  padding: 3px 7px;
+  font-size: x-small;
+  font-weight: 700;
+  transition: all .2s;
+}
+
+.trip-data button:hover {
+  background-color: rgb(250, 86, 86);
+}
+
+.trip-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  background-color: rgb(241, 241, 241);
+  transition: all 0.2s;
+}
+
+.trip-add span {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.trip-add:hover {
+  background-color: rgb(213, 213, 213);
+}
+
+.trip-btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  gap: 10px;
+}
+
+.weather-days-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-list-for-focused-trip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border: none;
+  background-color: inherit;
+  text-align: center;
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+.btn-control:hover:enabled {
+  background-color: rgb(207, 207, 207);
+}
+
+.btn-control span {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  .trips-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .trips-menu {
+    padding: 10px 0;
+  }
+
+  .trip-card {
+    height: 250px;
+    width: 160px;
+  }
+
+  .trip-add {
+    height: 160px;
+    width: 160px;
+  }
+}

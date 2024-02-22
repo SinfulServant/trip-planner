@@ -1,0 +1,36 @@
+<div class="status-main">
+  <div class="current-weather">
+    <h4>{{ currentDate | date : "EEEE" }}</h4>
+    <div>
+      <img
+        src="{{
+          './../../../../.././assets/weatherIcons/' + currentDay.icon + '.png'
+        }}"
+        alt=""
+      />
+      <p>{{ currentDay.temp }}</p>
+    </div>
+    <p>{{ currentTrip.city }}</p>
+  </div>
+  <div *ngIf="differenceBetweenDates > 0" class="time-to-trip">
+    <div>
+      <p>{{ differenceBetweenDates | date : "dd" }}</p>
+      <p>DAYS</p>
+    </div>
+    <div>
+      <p>{{ differenceBetweenDates | date : "HH" }}</p>
+      <p>HOURS</p>
+    </div>
+    <div>
+      <p>{{ differenceBetweenDates | date : "mm" }}</p>
+      <p>MINUTES</p>
+    </div>
+    <div>
+      <p>{{ differenceBetweenDates | date : "ss" }}</p>
+      <p>SECONDS</p>
+    </div>
+  </div>
+  <div *ngIf="differenceBetweenDates <= 0" class="time-to-trip">
+    <p style="font-size: xx-large;">Your trip already had been</p>
+  </div>
+</div>

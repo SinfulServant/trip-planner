@@ -1,0 +1,107 @@
+.modal-background {
+    inset: 0;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: rgb(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modal {
+    position: relative;
+    height: 60%;
+    width: 40%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+form {
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    color: red;
+}
+
+.header-modal,
+.footer-modal {
+    position: relative;
+    height: 15%;
+    display: flex;
+    padding: 5px;
+}
+
+.header-modal {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.footer-modal {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: right;
+    border-top: 1px solid #f1f1f1;
+}
+
+.footer-modal button {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    width: fit-content;
+    padding: 10px;
+}
+
+button {
+    border: 1px solid rgb(205, 205, 205);
+    border-radius: 3px;
+    background-color: inherit;
+    transition: all .2s;
+}
+
+button:hover:enabled {
+    background-color: #f1f1f1;
+}
+
+.ok {
+    background-color: rgb(89, 89, 254);
+    color: white
+}
+
+.ok:disabled {
+    background-color: rgb(177, 177, 177);
+    color: black;
+}
+
+.ok:hover:enabled {
+    background-color: rgb(132, 132, 255);
+}
+
+@media screen and (max-width: 1000px) {
+    .modal {
+        width: 60%;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .modal {
+        width: 80%;
+    }
+    
+}

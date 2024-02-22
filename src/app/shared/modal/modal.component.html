@@ -1,0 +1,59 @@
+<div class="modal-background">
+  <div class="modal">
+    <div class="header-modal">
+      <h4>Create trip</h4>
+      <div (click)="doCloseModal()" class="close-icon"></div>
+    </div>
+    <form>
+      <div>
+        <label for="input-city"><span>*</span> City</label>
+        <input
+          type="text"
+          [(ngModel)]="formData.city"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Please select a city"
+          id="input-city"
+          list="cities"
+        />
+      </div>
+      <datalist id="cities">
+        <option *ngFor="let city of cities">{{city}}</option>
+      </datalist>
+      <div>
+        <label for="input-start-date"><span>*</span> Start date</label>
+        <input
+          type="date"
+          [(ngModel)]="formData.startDate"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Select date"
+          id="input-start-date"
+        />
+      </div>
+      <div>
+        <label for="input-end-date"><span>*</span> End date</label>
+        <input
+          type="date"
+          [(ngModel)]="formData.endDate"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder=""
+          id="input-end-date"
+        />
+      </div>
+    </form>
+    <div class="footer-modal">
+      <button (click)="doCloseModal()" class="cancel" (click)="shotDownModal()">
+        Cancel
+      </button>
+      <button
+        [disabled]="
+          !formData.city.trim() ||
+          !formData.startDate.length 
+        "
+        class="ok"
+        (click)="addNewTrip()"
+      >
+        Save
+      </button>
+    </div>
+  </div>
+</div>
