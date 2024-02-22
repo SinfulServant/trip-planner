@@ -125,7 +125,6 @@ export class TripsComponent implements OnInit {
 
   private getImg(city: string, trip: ITripData): void {
     this.getImgService.getImg(city).subscribe((imgRes) => {
-      console.log(imgRes.results[0].urls.small);
       trip.img = imgRes.results[0].urls.small;
     });
   }
