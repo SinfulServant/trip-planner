@@ -112,17 +112,6 @@ export class TripsComponent implements OnInit {
     });
   }
 
-  // private initDataForCurrentTrips(): void {
-  //   this.tripsList.forEach((trip: ITripData) => {
-  //     this.getWeatherService.getGitGist().subscribe((dataAboutWeather) => {
-  //       // @ts-ignore
-  //       trip.days.push(...dataAboutWeather.days);
-  //       // this.getImg(trip.city, trip)
-  //       this.clickOnTrip(this.activeTrip.value);
-  //     });
-  //   });
-  // }
-
   private getImg(city: string, trip: ITripData): void {
     this.getImgService.getImg(city).subscribe((imgRes) => {
       trip.img = imgRes.results[0].urls.small;
