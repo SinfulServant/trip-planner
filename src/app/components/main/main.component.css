@@ -4,11 +4,9 @@
     height: 100vh;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 911px) {
     #main-page {
-        display: block;
-    }
-    aside {
-        display: none;
+        display: flex;
+        flex-direction: column;
     }
 }
