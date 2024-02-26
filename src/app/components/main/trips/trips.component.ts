@@ -12,7 +12,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./trips.component.css'],
 })
 export class TripsComponent implements OnInit {
-  public isShowModal: boolean = true;
+  public isShowModal: boolean = false;
   public activeTrip = new BehaviorSubject<number>(0);
   public searchInput: string = '';
   //
