@@ -101,20 +101,25 @@ export class TripsComponent implements OnInit {
   }
 
   private initDataForCurrentTrips(): void {
-    this.tripsList.forEach((trip: ITripData) => {
-      this.getWeatherService
-        .getWeather(trip.city, trip.startDate, trip.endDate)
-        .subscribe((dataAboutWeather) => {
-          trip.days.push(...dataAboutWeather.days);
-          this.getImg(trip.city, trip);
-          this.clickOnTrip(this.activeTrip.value);
-        });
-    });
+    console.log(!this.lsService.checkIsRelevance())
+    if(!this.lsService.checkIsRelevance()){
+      this.tripsList.forEach((trip: ITripData) => {
+        this.getWeatherService
+          .getWeather(trip.city, trip.startDate, trip.endDate)
+          .subscribe((dataAboutWeather) => {
+            trip.days.push(...dataAboutWeather.days);
+            this.getImg(trip.city, trip);
+            this.clickOnTrip(this.activeTrip.value);
+            this.lsService.updateTrips(this.tripsList);
+          });
+      });
+    }
   }
 
   private getImg(city: string, trip: ITripData): void {
     this.getImgService.getImg(city).subscribe((imgRes) => {
       trip.img = imgRes.results[0].urls.small;
+      this.lsService.updateTrips(this.tripsList);
     });
   }
 

@@ -34,12 +34,12 @@ export class CurrentWeatherStatusComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.calcDifferenceDates();
     this.doSetInterval();
-    this.updateWeather();
+    // this.updateWeather();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.calcDifferenceDates();
-    this.updateWeather();
+    // this.updateWeather();
   }
 
   private updateWeather(): void{

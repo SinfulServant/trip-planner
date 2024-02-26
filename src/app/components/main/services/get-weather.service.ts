@@ -16,6 +16,7 @@ export class GetWeatherService {
     startDate: string,
     endDate?: string
   ): Observable<any> {
+    console.log('from getWeatherService')
     const myKey = this.changeKey()
     return this.http.get<any>(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/${startDate}/${endDate}?unitGroup=metric&include=days&key=${myKey}`
@@ -23,6 +24,7 @@ export class GetWeatherService {
   }
 
   public getTodayWeather(city: string): Observable<any> {
+    console.log('from getWeatherService')
     const myKey = this.changeKey()
     return this.http.get<any>(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}/today?unitGroup=metric&include=days&key=${myKey}&contentType=json`
