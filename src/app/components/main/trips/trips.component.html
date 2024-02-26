@@ -17,12 +17,12 @@
 
   <div class="trips-menu">
     <div
-      *ngFor="let trip of tripsInView; let i = index"
+      *ngFor="let trip of tripsInView; let i = index" 
       class="trip-card"
       [ngStyle]="{
-        border:
+        outline:
           i === activeTrip.value - currentPageOfTrips * 3 + 3
-            ? '1px solid #8787ae'
+            ? '2px solid #8787ae'
             : ''
       }"
       (click)="clickOnTrip(i)"

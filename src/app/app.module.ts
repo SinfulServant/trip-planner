@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { TripsComponent } from './components/main/trips/trips.component';
 import { WeatherForFocusedTripComponent } from './components/main/trips/weather-for-focused-trip/weather-for-focused-trip.component';
 import { CommonModule, DatePipe } from '@angular/common';
+import { GetFullDaysPipe } from './pipes/get-full-days.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CommonModule, DatePipe } from '@angular/common';
     TripsComponent,
     ModalComponent,
     WeatherForFocusedTripComponent,
+    GetFullDaysPipe,
   ],
   imports: [
     BrowserModule,

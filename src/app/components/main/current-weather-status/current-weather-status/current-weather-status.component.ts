@@ -29,7 +29,9 @@ export class CurrentWeatherStatusComponent implements OnInit, OnChanges {
     icon: 'wind',
   };
 
-  constructor(private getWeatherService: GetWeatherService) {}
+  constructor(
+    private getWeatherService: GetWeatherService,
+  ) {}
 
   ngOnInit(): void {
     this.calcDifferenceDates();
@@ -42,11 +44,13 @@ export class CurrentWeatherStatusComponent implements OnInit, OnChanges {
     // this.updateWeather();
   }
 
-  private updateWeather(): void{
-    this.getWeatherService.getTodayWeather(this.currentTrip.city).subscribe(data => {
-      this.currentDay.temp = data.days[0].temp
-      this.currentDay.icon = data.days[0].icon
-    })
+  private updateWeather(): void {
+    this.getWeatherService
+      .getTodayWeather(this.currentTrip.city)
+      .subscribe((data) => {
+        this.currentDay.temp = data.days[0].temp;
+        this.currentDay.icon = data.days[0].icon;
+      });
   }
 
   private calcDifferenceDates(): void {

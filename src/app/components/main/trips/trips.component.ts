@@ -12,7 +12,7 @@ import { LocalStorageService } from 'src/app/services/local-storage.service';
   styleUrls: ['./trips.component.css'],
 })
 export class TripsComponent implements OnInit {
-  public isShowModal: boolean = false;
+  public isShowModal: boolean = true;
   public activeTrip = new BehaviorSubject<number>(0);
   public searchInput: string = '';
   //
@@ -29,7 +29,7 @@ export class TripsComponent implements OnInit {
     private getImgService: GetImgService,
     private lsService: LocalStorageService
   ) {
-    this.tripsList = this.lsService.getTrips();
+    this.initTripsFromLocalStorage()
   }
 
   ngOnInit(): void {
@@ -100,9 +100,8 @@ export class TripsComponent implements OnInit {
       });
   }
 
-  private initDataForCurrentTrips(): void {
-    console.log(!this.lsService.checkIsRelevance())
-    if(!this.lsService.checkIsRelevance()){
+  private initDataForCurrentTrips(force?: boolean): void {
+    if(!this.lsService.checkIsRelevance() || force){
       this.tripsList.forEach((trip: ITripData) => {
         this.getWeatherService
           .getWeather(trip.city, trip.startDate, trip.endDate)
@@ -147,6 +146,16 @@ export class TripsComponent implements OnInit {
   private subscripeOnActiveTrip(): void {
     this.activeTrip.subscribe(() => {
       this.sendCurrentTrip();
+      this.currentPageOfWeatherDays = 1
     });
+  }
+
+  private initTripsFromLocalStorage(): void {
+    this.tripsList = this.lsService.getTrips();
+    for(let i = 0; i < this.tripsList.length; i++){
+      if(!this.tripsList[i].days.length) {
+        this.initDataForCurrentTrips(true)
+      }
+    }
   }
 }

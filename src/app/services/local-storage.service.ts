@@ -3,7 +3,7 @@ import { ITripData } from '../interfaces/trip-data';
 
 const localStorageKeyTrips = 'trips';
 const localStorageKeyTripsLastUpdate = 'lastUpdate';
-const oneHourInMs = 7200000;
+const oneHourInMs = 3600000;
 
 const fakeTrip: ITripData[] = [
   {
@@ -50,13 +50,13 @@ export class LocalStorageService {
     const lastUpdate = localStorage.getItem(localStorageKeyTripsLastUpdate);
     if (lastUpdate !== null) {
       const now = new Date().getTime();
-      console.log('lastUpdate: ', lastUpdate, '\nnow: ', now);
       return now - +lastUpdate < oneHourInMs * 4;
     }
     return false;
   }
 
   public removeTrips() {
-    localStorage.removeItem(localStorageKeyTrips);
+    localStorage.removeItem(localStorageKeyTrips)
+    localStorage.removeItem(localStorageKeyTripsLastUpdate)
   }
 }

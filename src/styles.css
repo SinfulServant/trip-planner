@@ -32,6 +32,7 @@ dd {
   margin: 0;
   font-family: "Roboto Condensed", sans-serif;
   font-optical-sizing: auto;
+  cursor: default;
 }
 
 input[type="text"],
@@ -74,6 +75,10 @@ input[type="date"]:focus {
 }
 .close-icon:after {
   transform: rotate(-45deg);
+}
+
+button {
+  color: black
 }
 
 .flex-center {

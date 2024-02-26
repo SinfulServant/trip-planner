@@ -14,7 +14,7 @@
   </div>
   <div *ngIf="differenceBetweenDates > 0" class="time-to-trip">
     <div>
-      <p>{{ differenceBetweenDates | date : "dd" }}</p>
+      <p>{{ differenceBetweenDates | getFullDays }}</p>
       <p>DAYS</p>
     </div>
     <div>
